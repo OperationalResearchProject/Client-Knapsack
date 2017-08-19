@@ -64,7 +64,7 @@ class KnapSack:
 
         bag = [0] * self.nbObject
 
-        for i in range(0, int(self.nbObject) - 1):
+        for i in range(0, int(self.nbObject)):
             bag[i] = int(bool(random.getrandbits(1)))
 
         return bag
@@ -83,3 +83,14 @@ class KnapSack:
 
         self.solution[rdm1] = self.solution[rdm2]
         self.solution[rdm2] = tmp
+
+    def toString(self):
+        """
+        Return the solution with the OR-API format
+        """
+
+        res = ''
+        for i in range(0, int(self.nbObject)):
+            res += str(self.solution[i]) + '-'
+
+        return res[:-1]
