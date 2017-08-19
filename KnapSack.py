@@ -65,11 +65,21 @@ class KnapSack:
         bag = [0] * self.nbObject
 
         for i in range(0, int(self.nbObject) - 1):
-            print(i)
             bag[i] = int(bool(random.getrandbits(1)))
 
         return bag
 
+    def getRandomNeighbor(self):
+        """
+        Return a random neighbor of the current solution
+        """
 
-kp = KnapSack("ks_1000.dat")
-print("eval : "+str(kp.fitness()))
+        rdm1 = rdm2 = 0
+        while rdm1 == rdm2:
+            rdm1 = random.randint(0, int(self.nbObject) - 1)
+            rdm2 = random.randint(0, int(self.nbObject) - 1)
+
+        tmp = self.solution[rdm1]
+
+        self.solution[rdm1] = self.solution[rdm2]
+        self.solution[rdm2] = tmp
