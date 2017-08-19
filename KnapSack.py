@@ -12,7 +12,11 @@ class KnapSack:
             self.weightMax = lines[3]
             self.solution = self.generateRandomSolution()
 
-    def eval(self):
+    def fitness(self):
+        """
+        Return an evaluation of the current solution
+        """
+
         w = self.w()
         z = self.z()
 
@@ -22,6 +26,9 @@ class KnapSack:
             return float(z - self.penality() * (w - int(self.weightMax)))
 
     def w(self):
+        """
+        Return the current weigh of the solution
+        """
         res = 0
         for i in range(0, len(self.weights)):
             res += int(self.weights[i]) * self.solution[i]
@@ -29,12 +36,19 @@ class KnapSack:
         return res
 
     def z(self):
+        """
+        Return the current profit of the solution
+        """
         res = 0
         for i in range(0, len(self.profits)):
             res += int(self.profits[i]) * self.solution[i]
         return res
 
     def penality(self):
+        """
+         Return the higher ratio Profit / weight of the solution
+        """
+
         penMax = 0.0
         for i in range(0, int(self.nbObject)):
             penTmp = float(int(self.profits[i]) / int(self.weights[i]))
@@ -44,6 +58,10 @@ class KnapSack:
         return penMax
 
     def generateRandomSolution(self):
+        """
+        Return a random solution
+        """
+
         bag = [0] * self.nbObject
 
         for i in range(0, int(self.nbObject) - 1):
@@ -54,4 +72,4 @@ class KnapSack:
 
 
 kp = KnapSack("ks_1000.dat")
-print("eval : "+str(kp.eval()))
+print("eval : "+str(kp.fitness()))
