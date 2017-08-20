@@ -1,4 +1,5 @@
-import sys, getopt, urllib.request, subprocess, grpc
+import sys
+import grpc
 from KnapSack import KnapSack
 from protoGenerated import hcfi_pb2_grpc
 from protoGenerated import hcfi_pb2
