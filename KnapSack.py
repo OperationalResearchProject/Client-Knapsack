@@ -12,36 +12,36 @@ class KnapSack:
             self.weightMax = lines[3]
             self.solution = self.generateRandomSolution()
 
-    def fitness(self):
+    def fitness(self, sol=''):
         """
         Return an evaluation of the current solution
         """
 
-        w = self.w()
-        z = self.z()
+        w = self.w(sol.split("-") if sol != '' else self.solution)
+        z = self.z(sol.split("-") if sol != '' else self.solution)
 
         if w <= int(self.weightMax):
             return z
         else:
             return float(z - self.penality() * (w - int(self.weightMax)))
 
-    def w(self):
+    def w(self, solution):
         """
         Return the current weigh of the solution
         """
         res = 0
         for i in range(0, len(self.weights)):
-            res += int(self.weights[i]) * self.solution[i]
+            res += int(self.weights[i]) * int(solution[i])
 
         return res
 
-    def z(self):
+    def z(self, solution):
         """
         Return the current profit of the solution
         """
         res = 0
         for i in range(0, len(self.profits)):
-            res += int(self.profits[i]) * self.solution[i]
+            res += int(self.profits[i]) * int(solution[i])
         return res
 
     def penality(self):
