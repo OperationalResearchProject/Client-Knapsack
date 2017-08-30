@@ -23,3 +23,10 @@ python Client.py -h
 ```
 python Client.py -t
 ```
+
+
+
+## How rebuild proto files
+```
+python -m grpc_tools.protoc -I=./proto --python_out=./protoGenerated --grpc_python_out=./protoGenerated proto/hcfi.proto
+```
