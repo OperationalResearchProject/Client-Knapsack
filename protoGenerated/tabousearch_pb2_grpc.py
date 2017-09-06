@@ -4,7 +4,7 @@ import grpc
 from . import messages_pb2 as messages__pb2
 
 
-class HillClimberServiceStub(object):
+class TabouSearchServiceStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -15,23 +15,23 @@ class HillClimberServiceStub(object):
       channel: A grpc.Channel.
     """
     self.InitTransaction = channel.unary_unary(
-        '/hcfi.HillClimberService/InitTransaction',
+        '/ts.TabouSearchService/InitTransaction',
         request_serializer=messages__pb2.InitTransactionRequest.SerializeToString,
         response_deserializer=messages__pb2.FitnessResponse.FromString,
         )
     self.SendFitness = channel.unary_unary(
-        '/hcfi.HillClimberService/SendFitness',
+        '/ts.TabouSearchService/SendFitness',
         request_serializer=messages__pb2.FitnessRequest.SerializeToString,
         response_deserializer=messages__pb2.FitnessResponse.FromString,
         )
     self.StopTransaction = channel.unary_unary(
-        '/hcfi.HillClimberService/StopTransaction',
+        '/ts.TabouSearchService/StopTransaction',
         request_serializer=messages__pb2.StopRequest.SerializeToString,
         response_deserializer=messages__pb2.StopResponse.FromString,
         )
 
 
-class HillClimberServiceServicer(object):
+class TabouSearchServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -57,7 +57,7 @@ class HillClimberServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_HillClimberServiceServicer_to_server(servicer, server):
+def add_TabouSearchServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'InitTransaction': grpc.unary_unary_rpc_method_handler(
           servicer.InitTransaction,
@@ -76,5 +76,5 @@ def add_HillClimberServiceServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'hcfi.HillClimberService', rpc_method_handlers)
+      'ts.TabouSearchService', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
