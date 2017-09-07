@@ -1,5 +1,7 @@
 import sys
 import getopt
+from email import message
+
 import grpc
 from KnapSack import KnapSack
 from protoGenerated import hcfi_pb2_grpc
@@ -83,8 +85,18 @@ def processTS(channel, kp):
         solution=kp.toString()
     ))
 
-    print(response.id)
-    print(response.solution)
+
+
+    responseFinal = stubTabouSearch.StopTransaction(messages_pb2.StopRequest(
+        id=response.id,
+        message="done"
+    ))
+
+
+    print(responseFinal.id)
+    print(responseFinal.fitness)
+    print(responseFinal.solution)
+
 
 
 if __name__ == "__main__":
