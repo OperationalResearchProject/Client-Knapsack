@@ -85,17 +85,21 @@ def processTS(channel, kp):
         solution=kp.toString()
     ))
 
+    response = stubTabouSearch.SendFitness(messages_pb2.GenericFitnessRequest(
+        id=response.id,
+        fitness=kp.fitness(response.solutions[0]),
+        solution=response.solutions[0]
+    ))
+    print(response.solutions)
 
-
-    responseFinal = stubTabouSearch.StopTransaction(messages_pb2.StopRequest(
+    response = stubTabouSearch.StopTransaction(messages_pb2.StopRequest(
         id=response.id,
         message="done"
     ))
 
-
-    print(responseFinal.id)
-    print(responseFinal.fitness)
-    print(responseFinal.solution)
+    print(response.id)
+   #  print(response.fitness)
+    #print(response.solution)
 
 
 

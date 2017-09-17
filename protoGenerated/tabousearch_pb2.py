@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='tabousearch.proto',
   package='ts',
   syntax='proto3',
-  serialized_pb=_b('\n\x11tabousearch.proto\x12\x02ts\x1a\x0emessages.proto2\xba\x01\n\x12TabouSearchService\x12>\n\x0fInitTransaction\x12\x17.InitTransactionRequest\x1a\x10.FitnessResponse\"\x00\x12\x32\n\x0bSendFitness\x12\x0f.FitnessRequest\x1a\x10.FitnessResponse\"\x00\x12\x30\n\x0fStopTransaction\x12\x0c.StopRequest\x1a\r.StopResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x11tabousearch.proto\x12\x02ts\x1a\x0emessages.proto2\xc9\x01\n\x12TabouSearchService\x12\x43\n\x0fInitTransaction\x12\x17.InitTransactionRequest\x1a\x15.MultiFitnessResponse\"\x00\x12<\n\x0bSendFitness\x12\x14.MultiFitnessRequest\x1a\x15.MultiFitnessResponse\"\x00\x12\x30\n\x0fStopTransaction\x12\x0c.StopRequest\x1a\r.StopResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[messages__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _TABOUSEARCHSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   options=None,
   serialized_start=42,
-  serialized_end=228,
+  serialized_end=243,
   methods=[
   _descriptor.MethodDescriptor(
     name='InitTransaction',
@@ -45,7 +45,7 @@ _TABOUSEARCHSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=messages__pb2._INITTRANSACTIONREQUEST,
-    output_type=messages__pb2._FITNESSRESPONSE,
+    output_type=messages__pb2._MULTIFITNESSRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -53,8 +53,8 @@ _TABOUSEARCHSERVICE = _descriptor.ServiceDescriptor(
     full_name='ts.TabouSearchService.SendFitness',
     index=1,
     containing_service=None,
-    input_type=messages__pb2._FITNESSREQUEST,
-    output_type=messages__pb2._FITNESSRESPONSE,
+    input_type=messages__pb2._MULTIFITNESSREQUEST,
+    output_type=messages__pb2._MULTIFITNESSRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -94,12 +94,12 @@ try:
       self.InitTransaction = channel.unary_unary(
           '/ts.TabouSearchService/InitTransaction',
           request_serializer=messages__pb2.InitTransactionRequest.SerializeToString,
-          response_deserializer=messages__pb2.FitnessResponse.FromString,
+          response_deserializer=messages__pb2.MultiFitnessResponse.FromString,
           )
       self.SendFitness = channel.unary_unary(
           '/ts.TabouSearchService/SendFitness',
-          request_serializer=messages__pb2.FitnessRequest.SerializeToString,
-          response_deserializer=messages__pb2.FitnessResponse.FromString,
+          request_serializer=messages__pb2.MultiFitnessRequest.SerializeToString,
+          response_deserializer=messages__pb2.MultiFitnessResponse.FromString,
           )
       self.StopTransaction = channel.unary_unary(
           '/ts.TabouSearchService/StopTransaction',
@@ -139,12 +139,12 @@ try:
         'InitTransaction': grpc.unary_unary_rpc_method_handler(
             servicer.InitTransaction,
             request_deserializer=messages__pb2.InitTransactionRequest.FromString,
-            response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+            response_serializer=messages__pb2.MultiFitnessResponse.SerializeToString,
         ),
         'SendFitness': grpc.unary_unary_rpc_method_handler(
             servicer.SendFitness,
-            request_deserializer=messages__pb2.FitnessRequest.FromString,
-            response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+            request_deserializer=messages__pb2.MultiFitnessRequest.FromString,
+            response_serializer=messages__pb2.MultiFitnessResponse.SerializeToString,
         ),
         'StopTransaction': grpc.unary_unary_rpc_method_handler(
             servicer.StopTransaction,
@@ -212,12 +212,12 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('ts.TabouSearchService', 'InitTransaction'): messages__pb2.InitTransactionRequest.FromString,
-      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.FitnessRequest.FromString,
+      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.MultiFitnessRequest.FromString,
       ('ts.TabouSearchService', 'StopTransaction'): messages__pb2.StopRequest.FromString,
     }
     response_serializers = {
-      ('ts.TabouSearchService', 'InitTransaction'): messages__pb2.FitnessResponse.SerializeToString,
-      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.FitnessResponse.SerializeToString,
+      ('ts.TabouSearchService', 'InitTransaction'): messages__pb2.MultiFitnessResponse.SerializeToString,
+      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.MultiFitnessResponse.SerializeToString,
       ('ts.TabouSearchService', 'StopTransaction'): messages__pb2.StopResponse.SerializeToString,
     }
     method_implementations = {
@@ -237,12 +237,12 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('ts.TabouSearchService', 'InitTransaction'): messages__pb2.InitTransactionRequest.SerializeToString,
-      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.FitnessRequest.SerializeToString,
+      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.MultiFitnessRequest.SerializeToString,
       ('ts.TabouSearchService', 'StopTransaction'): messages__pb2.StopRequest.SerializeToString,
     }
     response_deserializers = {
-      ('ts.TabouSearchService', 'InitTransaction'): messages__pb2.FitnessResponse.FromString,
-      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.FitnessResponse.FromString,
+      ('ts.TabouSearchService', 'InitTransaction'): messages__pb2.MultiFitnessResponse.FromString,
+      ('ts.TabouSearchService', 'SendFitness'): messages__pb2.MultiFitnessResponse.FromString,
       ('ts.TabouSearchService', 'StopTransaction'): messages__pb2.StopResponse.FromString,
     }
     cardinalities = {

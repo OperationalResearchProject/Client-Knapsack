@@ -17,12 +17,12 @@ class HillClimberServiceStub(object):
     self.InitTransaction = channel.unary_unary(
         '/hcfi.HillClimberService/InitTransaction',
         request_serializer=messages__pb2.InitTransactionRequest.SerializeToString,
-        response_deserializer=messages__pb2.FitnessResponse.FromString,
+        response_deserializer=messages__pb2.GenericFitnessResponse.FromString,
         )
     self.SendFitness = channel.unary_unary(
         '/hcfi.HillClimberService/SendFitness',
-        request_serializer=messages__pb2.FitnessRequest.SerializeToString,
-        response_deserializer=messages__pb2.FitnessResponse.FromString,
+        request_serializer=messages__pb2.GenericFitnessRequest.SerializeToString,
+        response_deserializer=messages__pb2.GenericFitnessResponse.FromString,
         )
     self.StopTransaction = channel.unary_unary(
         '/hcfi.HillClimberService/StopTransaction',
@@ -62,12 +62,12 @@ def add_HillClimberServiceServicer_to_server(servicer, server):
       'InitTransaction': grpc.unary_unary_rpc_method_handler(
           servicer.InitTransaction,
           request_deserializer=messages__pb2.InitTransactionRequest.FromString,
-          response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+          response_serializer=messages__pb2.GenericFitnessResponse.SerializeToString,
       ),
       'SendFitness': grpc.unary_unary_rpc_method_handler(
           servicer.SendFitness,
-          request_deserializer=messages__pb2.FitnessRequest.FromString,
-          response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+          request_deserializer=messages__pb2.GenericFitnessRequest.FromString,
+          response_serializer=messages__pb2.GenericFitnessResponse.SerializeToString,
       ),
       'StopTransaction': grpc.unary_unary_rpc_method_handler(
           servicer.StopTransaction,

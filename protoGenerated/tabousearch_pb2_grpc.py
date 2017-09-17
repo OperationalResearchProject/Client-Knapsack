@@ -17,12 +17,12 @@ class TabouSearchServiceStub(object):
     self.InitTransaction = channel.unary_unary(
         '/ts.TabouSearchService/InitTransaction',
         request_serializer=messages__pb2.InitTransactionRequest.SerializeToString,
-        response_deserializer=messages__pb2.FitnessResponse.FromString,
+        response_deserializer=messages__pb2.MultiFitnessResponse.FromString,
         )
     self.SendFitness = channel.unary_unary(
         '/ts.TabouSearchService/SendFitness',
-        request_serializer=messages__pb2.FitnessRequest.SerializeToString,
-        response_deserializer=messages__pb2.FitnessResponse.FromString,
+        request_serializer=messages__pb2.MultiFitnessRequest.SerializeToString,
+        response_deserializer=messages__pb2.MultiFitnessResponse.FromString,
         )
     self.StopTransaction = channel.unary_unary(
         '/ts.TabouSearchService/StopTransaction',
@@ -62,12 +62,12 @@ def add_TabouSearchServiceServicer_to_server(servicer, server):
       'InitTransaction': grpc.unary_unary_rpc_method_handler(
           servicer.InitTransaction,
           request_deserializer=messages__pb2.InitTransactionRequest.FromString,
-          response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+          response_serializer=messages__pb2.MultiFitnessResponse.SerializeToString,
       ),
       'SendFitness': grpc.unary_unary_rpc_method_handler(
           servicer.SendFitness,
-          request_deserializer=messages__pb2.FitnessRequest.FromString,
-          response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+          request_deserializer=messages__pb2.MultiFitnessRequest.FromString,
+          response_serializer=messages__pb2.MultiFitnessResponse.SerializeToString,
       ),
       'StopTransaction': grpc.unary_unary_rpc_method_handler(
           servicer.StopTransaction,

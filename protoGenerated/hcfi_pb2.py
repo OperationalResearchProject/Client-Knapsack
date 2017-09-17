@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='hcfi.proto',
   package='hcfi',
   syntax='proto3',
-  serialized_pb=_b('\n\nhcfi.proto\x12\x04hcfi\x1a\x0emessages.proto2\xba\x01\n\x12HillClimberService\x12>\n\x0fInitTransaction\x12\x17.InitTransactionRequest\x1a\x10.FitnessResponse\"\x00\x12\x32\n\x0bSendFitness\x12\x0f.FitnessRequest\x1a\x10.FitnessResponse\"\x00\x12\x30\n\x0fStopTransaction\x12\x0c.StopRequest\x1a\r.StopResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\nhcfi.proto\x12\x04hcfi\x1a\x0emessages.proto2\xcf\x01\n\x12HillClimberService\x12\x45\n\x0fInitTransaction\x12\x17.InitTransactionRequest\x1a\x17.GenericFitnessResponse\"\x00\x12@\n\x0bSendFitness\x12\x16.GenericFitnessRequest\x1a\x17.GenericFitnessResponse\"\x00\x12\x30\n\x0fStopTransaction\x12\x0c.StopRequest\x1a\r.StopResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[messages__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _HILLCLIMBERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   options=None,
   serialized_start=37,
-  serialized_end=223,
+  serialized_end=244,
   methods=[
   _descriptor.MethodDescriptor(
     name='InitTransaction',
@@ -45,7 +45,7 @@ _HILLCLIMBERSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=messages__pb2._INITTRANSACTIONREQUEST,
-    output_type=messages__pb2._FITNESSRESPONSE,
+    output_type=messages__pb2._GENERICFITNESSRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -53,8 +53,8 @@ _HILLCLIMBERSERVICE = _descriptor.ServiceDescriptor(
     full_name='hcfi.HillClimberService.SendFitness',
     index=1,
     containing_service=None,
-    input_type=messages__pb2._FITNESSREQUEST,
-    output_type=messages__pb2._FITNESSRESPONSE,
+    input_type=messages__pb2._GENERICFITNESSREQUEST,
+    output_type=messages__pb2._GENERICFITNESSRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -94,12 +94,12 @@ try:
       self.InitTransaction = channel.unary_unary(
           '/hcfi.HillClimberService/InitTransaction',
           request_serializer=messages__pb2.InitTransactionRequest.SerializeToString,
-          response_deserializer=messages__pb2.FitnessResponse.FromString,
+          response_deserializer=messages__pb2.GenericFitnessResponse.FromString,
           )
       self.SendFitness = channel.unary_unary(
           '/hcfi.HillClimberService/SendFitness',
-          request_serializer=messages__pb2.FitnessRequest.SerializeToString,
-          response_deserializer=messages__pb2.FitnessResponse.FromString,
+          request_serializer=messages__pb2.GenericFitnessRequest.SerializeToString,
+          response_deserializer=messages__pb2.GenericFitnessResponse.FromString,
           )
       self.StopTransaction = channel.unary_unary(
           '/hcfi.HillClimberService/StopTransaction',
@@ -139,12 +139,12 @@ try:
         'InitTransaction': grpc.unary_unary_rpc_method_handler(
             servicer.InitTransaction,
             request_deserializer=messages__pb2.InitTransactionRequest.FromString,
-            response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+            response_serializer=messages__pb2.GenericFitnessResponse.SerializeToString,
         ),
         'SendFitness': grpc.unary_unary_rpc_method_handler(
             servicer.SendFitness,
-            request_deserializer=messages__pb2.FitnessRequest.FromString,
-            response_serializer=messages__pb2.FitnessResponse.SerializeToString,
+            request_deserializer=messages__pb2.GenericFitnessRequest.FromString,
+            response_serializer=messages__pb2.GenericFitnessResponse.SerializeToString,
         ),
         'StopTransaction': grpc.unary_unary_rpc_method_handler(
             servicer.StopTransaction,
@@ -212,12 +212,12 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('hcfi.HillClimberService', 'InitTransaction'): messages__pb2.InitTransactionRequest.FromString,
-      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.FitnessRequest.FromString,
+      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.GenericFitnessRequest.FromString,
       ('hcfi.HillClimberService', 'StopTransaction'): messages__pb2.StopRequest.FromString,
     }
     response_serializers = {
-      ('hcfi.HillClimberService', 'InitTransaction'): messages__pb2.FitnessResponse.SerializeToString,
-      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.FitnessResponse.SerializeToString,
+      ('hcfi.HillClimberService', 'InitTransaction'): messages__pb2.GenericFitnessResponse.SerializeToString,
+      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.GenericFitnessResponse.SerializeToString,
       ('hcfi.HillClimberService', 'StopTransaction'): messages__pb2.StopResponse.SerializeToString,
     }
     method_implementations = {
@@ -237,12 +237,12 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('hcfi.HillClimberService', 'InitTransaction'): messages__pb2.InitTransactionRequest.SerializeToString,
-      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.FitnessRequest.SerializeToString,
+      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.GenericFitnessRequest.SerializeToString,
       ('hcfi.HillClimberService', 'StopTransaction'): messages__pb2.StopRequest.SerializeToString,
     }
     response_deserializers = {
-      ('hcfi.HillClimberService', 'InitTransaction'): messages__pb2.FitnessResponse.FromString,
-      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.FitnessResponse.FromString,
+      ('hcfi.HillClimberService', 'InitTransaction'): messages__pb2.GenericFitnessResponse.FromString,
+      ('hcfi.HillClimberService', 'SendFitness'): messages__pb2.GenericFitnessResponse.FromString,
       ('hcfi.HillClimberService', 'StopTransaction'): messages__pb2.StopResponse.FromString,
     }
     cardinalities = {
