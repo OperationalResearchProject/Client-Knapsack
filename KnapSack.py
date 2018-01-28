@@ -21,9 +21,9 @@ class KnapSack:
         z = self.z(sol.split("-") if sol != '' else self.solution)
 
         if w <= int(self.weightMax):
-            return z
+            return 1 / z
         else:
-            return float(z - self.penality() * (w - int(self.weightMax)))
+            return 1 / (float(z - self.penality() * (w - int(self.weightMax))))
 
     def w(self, solution):
         """

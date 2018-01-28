@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='messages.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x0emessages.proto\"\x84\x01\n\x16InitTransactionRequest\x12\x10\n\x08\x63ustomer\x18\x01 \x01(\t\x12\x14\n\x0csolutionSize\x18\x02 \x01(\x05\x12\x0f\n\x07\x66itness\x18\x03 \x01(\x01\x12\x10\n\x08solution\x18\x04 \x01(\t\x12\x11\n\talgorithm\x18\x05 \x01(\t\x12\x0c\n\x04type\x18\x06 \x01(\t\"I\n\x16GenericFitnessResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08solution\x18\x02 \x01(\t\x12\x11\n\titeration\x18\x03 \x01(\x05\"F\n\x15GenericFitnessRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x66itness\x18\x02 \x01(\x01\x12\x10\n\x08solution\x18\x03 \x01(\t\"H\n\x14MultiFitnessResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tsolutions\x18\x02 \x03(\t\x12\x11\n\titeration\x18\x03 \x01(\x05\"G\n\x13MultiFitnessRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tfitnesses\x18\x02 \x03(\x01\x12\x11\n\tsolutions\x18\x03 \x03(\t\"*\n\x0bStopRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\"=\n\x0cStopResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08solution\x18\x02 \x01(\t\x12\x0f\n\x07\x66itness\x18\x03 \x01(\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0emessages.proto\"\x84\x01\n\x16InitTransactionRequest\x12\x10\n\x08\x63ustomer\x18\x01 \x01(\t\x12\x14\n\x0csolutionSize\x18\x02 \x01(\x05\x12\x0f\n\x07\x66itness\x18\x03 \x01(\x01\x12\x10\n\x08solution\x18\x04 \x01(\t\x12\x11\n\talgorithm\x18\x05 \x01(\t\x12\x0c\n\x04type\x18\x06 \x01(\t\"I\n\x16GenericFitnessResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08solution\x18\x02 \x01(\t\x12\x11\n\titeration\x18\x03 \x01(\x05\"F\n\x15GenericFitnessRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x66itness\x18\x02 \x01(\x01\x12\x10\n\x08solution\x18\x03 \x01(\t\"S\n\x14MultiFitnessResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1c\n\tsolutions\x18\x02 \x03(\x0b\x32\t.Solution\x12\x11\n\titeration\x18\x03 \x01(\x05\"R\n\x13MultiFitnessRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tfitnesses\x18\x02 \x03(\x01\x12\x1c\n\tsolutions\x18\x03 \x03(\x0b\x32\t.Solution\"*\n\x0bStopRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\"=\n\x0cStopResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08solution\x18\x02 \x01(\t\x12\x0f\n\x07\x66itness\x18\x03 \x01(\x01\"]\n\x08Solution\x12\x17\n\x0fmother_solution\x18\x01 \x01(\t\x12\x10\n\x08mother_i\x18\x02 \x01(\x05\x12\x10\n\x08mother_j\x18\x03 \x01(\x05\x12\t\n\x01i\x18\x04 \x01(\x05\x12\t\n\x01j\x18\x05 \x01(\x05\x62\x06proto3')
 )
 
 
@@ -197,7 +197,7 @@ _MULTIFITNESSRESPONSE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='solutions', full_name='MultiFitnessResponse.solutions', index=1,
-      number=2, type=9, cpp_type=9, label=3,
+      number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -222,7 +222,7 @@ _MULTIFITNESSRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=300,
-  serialized_end=372,
+  serialized_end=383,
 )
 
 
@@ -249,7 +249,7 @@ _MULTIFITNESSREQUEST = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='solutions', full_name='MultiFitnessRequest.solutions', index=2,
-      number=3, type=9, cpp_type=9, label=3,
+      number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -266,8 +266,8 @@ _MULTIFITNESSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=374,
-  serialized_end=445,
+  serialized_start=385,
+  serialized_end=467,
 )
 
 
@@ -304,8 +304,8 @@ _STOPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=447,
-  serialized_end=489,
+  serialized_start=469,
+  serialized_end=511,
 )
 
 
@@ -349,10 +349,71 @@ _STOPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=491,
-  serialized_end=552,
+  serialized_start=513,
+  serialized_end=574,
 )
 
+
+_SOLUTION = _descriptor.Descriptor(
+  name='Solution',
+  full_name='Solution',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='mother_solution', full_name='Solution.mother_solution', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mother_i', full_name='Solution.mother_i', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='mother_j', full_name='Solution.mother_j', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='i', full_name='Solution.i', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='j', full_name='Solution.j', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=576,
+  serialized_end=669,
+)
+
+_MULTIFITNESSRESPONSE.fields_by_name['solutions'].message_type = _SOLUTION
+_MULTIFITNESSREQUEST.fields_by_name['solutions'].message_type = _SOLUTION
 DESCRIPTOR.message_types_by_name['InitTransactionRequest'] = _INITTRANSACTIONREQUEST
 DESCRIPTOR.message_types_by_name['GenericFitnessResponse'] = _GENERICFITNESSRESPONSE
 DESCRIPTOR.message_types_by_name['GenericFitnessRequest'] = _GENERICFITNESSREQUEST
@@ -360,6 +421,7 @@ DESCRIPTOR.message_types_by_name['MultiFitnessResponse'] = _MULTIFITNESSRESPONSE
 DESCRIPTOR.message_types_by_name['MultiFitnessRequest'] = _MULTIFITNESSREQUEST
 DESCRIPTOR.message_types_by_name['StopRequest'] = _STOPREQUEST
 DESCRIPTOR.message_types_by_name['StopResponse'] = _STOPRESPONSE
+DESCRIPTOR.message_types_by_name['Solution'] = _SOLUTION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 InitTransactionRequest = _reflection.GeneratedProtocolMessageType('InitTransactionRequest', (_message.Message,), dict(
@@ -410,6 +472,13 @@ StopResponse = _reflection.GeneratedProtocolMessageType('StopResponse', (_messag
   # @@protoc_insertion_point(class_scope:StopResponse)
   ))
 _sym_db.RegisterMessage(StopResponse)
+
+Solution = _reflection.GeneratedProtocolMessageType('Solution', (_message.Message,), dict(
+  DESCRIPTOR = _SOLUTION,
+  __module__ = 'messages_pb2'
+  # @@protoc_insertion_point(class_scope:Solution)
+  ))
+_sym_db.RegisterMessage(Solution)
 
 
 try:
